@@ -1,0 +1,59 @@
+snippet ai "Insert ahfowimage" b
+{% ahfowimage "${1:url}" "${2:caption}" %}
+endsnippet
+
+snippet av "Insert ahfowvideo" b
+{% ahfowvideo "${1:youtubeid}" "${2:caption}" "${3:thumbnail}" %}
+endsnippet
+
+snippet aa "Insert ahfowaudio" b
+{% ahfowaudio {
+"audiourl": "${1:url}",
+"audiocap": "${2:caption}",
+"sourceurl": "${3:sourceurl}",
+"sourcecap": "${4:sourcecaption}"
+} %}
+endsnippet
+
+snippet post "Add post frontmatter"
+---
+title: $1
+series-title: $2
+layout: post
+sitemap: true
+author: 
+  display_name: Andy
+  login: admin
+  email: andy@grange85.co.uk
+  url: http://www.grange85.co.uk
+imageurl: $3
+date: ${4:`date +%Y-%m-%d`}
+categories:
+ - $5
+tags: 
+ - $6
+---
+endsnippet
+
+snippet mrc "My record collection metadata" b
+ - *Catalogue Number:* $1
+ - *Artist:* $2
+ - *Title:* $3
+ - *Notes:* $4
+ - *Packaging:* $5
+ - *Format:* $6
+ - Bought...$7
+ - [Buy '$3' on Bandcamp]($8)
+endsnippet
+
+snippet pi "Previously in" b
+Previously in [my record collection](/category/my-record-collection):
+ - $1
+endsnippet
+
+snippet bq "Block quote" b
+<blockquote>
+${1:quote}
+</blockquote>
+<p class="caption">${2:footer}</p>
+endsnippet
