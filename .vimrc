@@ -76,7 +76,7 @@ nnoremap <leader>m :call MoonshotReplace()<cr>
 nnoremap <leader>t ciw{% ahfowtrack "<C-r>" %}<Esc>
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
-command! FullUrl %s~\v\]\((\/[^)]*)\)~](https://www.fullofwishes.co.uk\1?utm_medium=social\&utm_source=substack\&utm_campaign=newsletter+yyyymmdd)~g
+command! FullUrl %s~\v\]\((\/[^)]*)\)~](https://www.fullofwishes.co.uk\1?utm_source=social\&utm_medium=substack\&utm_campaign=newsletter+yyyymmdd)~g
 command! FullUrl2 %s~\(href="\|](\)\(\/[^"|)]*\)~\1https://www.fullofwishes.co.uk\2?utm_source=social\&utm_medium=substack\&utm_campaign=newsletter+yyyymmdd~g
 
 call plug#begin()
