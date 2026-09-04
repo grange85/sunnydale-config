@@ -1,0 +1,44 @@
+library: ~/.config/beets/music-library.db
+directory: /mnt/media/shared/music/library/sorted/
+plugins: musicbrainz replace filetote inline missing
+per_disc_numbering: yes
+duplicate_action: skip
+aunique:
+    keys: albumartist album
+    disambiguators: albumtype year label catalognum albumdisambig releasegroupdisambig mb_albumid
+    bracket: '[]'
+
+import:
+  copy: yes
+  write: yes
+
+filetote:
+  extensions: .*
+
+# Inline plugin template
+item_fields:
+  multidisc: 1 if disctotal > 1 else 0
+
+# 1. Custom string replacements for file and folder names
+asciify-paths: yes
+replace:
+    '&': 'and'
+    # Replace all spaces with hyphens
+    '[ ]+': '-'
+    # Strip any characters that aren't letters, numbers, or hyphens/slashes
+    '[^a-zA-Z0-9/\-\.]': ''
+    # Clean up any accidental double hyphens caused by removing punctuation
+    '-+': '-'
+# 2. Define the path layout
+paths:
+    default: |
+             %upper{%left{%if{$albumartist_sort,$albumartist_sort,$albumartist},1}}/
+             %lower{%if{$albumartist_sort,$albumartist_sort,$albumartist}}/%lower{$album%aunique{}}/
+             %lower{%if{$multidisc,$disc-}$track-$artist-$title}
+    comp: |
+             VARIOUS-ARTISTS/
+             %lower{$album%aunique{}}/
+             %lower{%if{$multidisc,$disc-}$track-$artist-$title}
+            
+#    default: /mnt/media/shared/music/library/sorted/$upper{left{%artist_sort,1}}/$lower{%artist_sort}/lower{%album}/%track-$lower{%albumartist}-lower{%title}
+

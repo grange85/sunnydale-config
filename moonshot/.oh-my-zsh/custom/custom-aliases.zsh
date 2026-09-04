@@ -15,12 +15,9 @@ alias mediaall="aws s3 sync --profile grange85 --size-only --delete --exclude '.
 alias mediag500="aws s3 sync --profile grange85 --size-only --delete --exclude '.sass-cache' --exclude '*.comments/*' /media/raid1/DATA/ahfow/media/01-galaxie_500/ s3://media-new.fullofwishes.co.uk/01-galaxie_500"
 alias medialuna="aws s3 sync --profile grange85 --size-only --delete --exclude '.sass-cache' --exclude '*.comments/*' /media/raid1/DATA/ahfow/media/02-luna/ s3://media-new.fullofwishes.co.uk/02-luna"
 alias mediadan="aws s3 sync --profile grange85 --size-only --delete --exclude '.sass-cache' --exclude '*.comments/*' /media/raid1/DATA/ahfow/media/03-damon_and_naomi s3://media-new.fullofwishes.co.uk/03-damon_and_naomi"
-alias gpup="GPHOTOS_CLI_TOKENSTORE_KEY='When Will You Come Home' /home/andy/bin/gphotos-uploader-cli push"
 alias g85all="aws s3 sync --profile grange85 --size-only --delete --exclude '.sass-cache' /home/andy/repos/grange85-media-cdn/ s3://cdn.grange85.co.uk"
-# alias python="python3"
 
 alias cls='clear'
-alias hg='history | grep -i'
 alias fx='find . -type f -not -path '\''./.git/*'\'' | sed -n '\''s/..*\.//p'\'' | sort | uniq -c'
 alias egrep='grep -E --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox,vendor}'
 alias fgrep='grep -F --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox,vendor}'
@@ -37,11 +34,6 @@ function search_mfow {
 
 function mrc {
 	convert $1 -resize 1280x1280 ~/ahfow-data/media/00-misc/my-record-collection/$2	
-}
-
-function create_issue {
-	gh issue create --repo grange85/ahfow-www-comments --title "$1" --body "### [View post](https://www.fullofwishes.co.uk$2)  
-$3"
 }
 
 function upscale_to_4k { \

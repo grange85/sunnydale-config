@@ -15,7 +15,7 @@ set softtabstop=4               " when hitting <BS>, pretend like a tab is remov
 set noexpandtab                 " don't expand tabs to spaces by default
 set shiftwidth=4                " number of spaces to use for autoindenting
 set linebreak					
-set directory^=$HOME/.vim/swap//
+set directory^=$HOME/.vim/swap/
 let mapleader=' '
 " set spell spelllang=en_gb
 command Wd write|bdelete
