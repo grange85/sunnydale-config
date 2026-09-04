@@ -28,7 +28,7 @@ alias grep='grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox,v
 alias jop='nohup joplin --no-sandbox&'
 alias sshm='ssh -t moonshot.g85 screen'
 alias beetsx='/home/andy/bin/beets/venv/bin/beet'
-
+alias gh='NO_COLOR=1 gh'
 
 
 function search_mfow {
