@@ -93,7 +93,7 @@ Plug 'mechatroner/rainbow_csv'
 Plug 'chrisbra/Recover.vim'
 Plug 'rickhowe/diffchar.vim'
 Plug 'instant-markdown/vim-instant-markdown', {'for': 'markdown', 'do': 'npm install'}
-Plug 'atkenny15/vim-ghosttext'
+" Plug 'atkenny15/vim-ghosttext'
 " Initialize plugin system
 call plug#end()
 " You can revert the settings after the call like so:
