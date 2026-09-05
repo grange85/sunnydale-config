@@ -13,7 +13,7 @@ the "Markdown Preview Mermaid Support" extension.
 
 ```mermaid
 graph TD
-    INTERNET([Internet]) --> ROUTER[Vodafone Router]
+    INTERNET([Internet]) <--> ROUTER[Vodafone Router]
 
     ROUTER -->|port 1| MOONSHOT[moonshot<br/>Intel NUC i5, Debian 13<br/>192.168.1.150]
     ROUTER -->|port 2| PIHOLE[sunnypihole<br/>Pi 4B, DietPi<br/>Pi-hole + Unbound + DHCP<br/>192.168.1.30]
