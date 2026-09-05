@@ -28,6 +28,9 @@ graph TD
 
     MOONSHOT -->|USB| NIC[USB Gigabit Adapter<br/>UGREEN AX88179]
 
+    FIRESTICK[TV<br/>192.168.1.164] -.WiFi.-> ROUTER
+    SNOWSTORM[Laptop<br/>192.168.1.121] -.WiFi.-> ROUTER
+
     style BORG stroke-dasharray: 5 5
 ```
 
