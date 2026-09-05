@@ -19,10 +19,10 @@ graph TD
     ROUTER -->|port 2| PIHOLE[sunnypihole<br/>Pi 4B, DietPi<br/>Pi-hole + Unbound + DHCP<br/>192.168.1.30]
     ROUTER -->|port 3| SWITCH1[Downstairs Switch<br/>4-port unmanaged]
 
-    SWITCH1 --> BIRD[sunnybird<br/>Pi 3B, DietPi<br/>BirdNET-Go<br/>192.168.1.50]
-    SWITCH1 --> EXT[sunnydale-x<br/>WiFi Extender]
-    SWITCH1 --> TV[TV]
-    SWITCH1 --> STB[Set-top Box]
+    SWITCH1 --> |port 1| BIRD[sunnybird<br/>Pi 3B, DietPi<br/>BirdNET-Go<br/>192.168.1.50]
+    SWITCH1 --> |port 2| EXT[sunnydale-x<br/>WiFi Extender<br/>192.168.1.111]
+    SWITCH1 --> |port 3| TV[TV<br/>192.168.1.20]
+    SWITCH1 --> |port 4| STB[Set-top Box<br/>192.168.1.89]
 
     BORG[Borg Backup Server<br/>Pi 4B, DietPi<br/>6TB drive<br/>currently WiFi - unstable] -.WiFi.-> ROUTER
 
