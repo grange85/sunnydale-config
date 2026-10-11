@@ -61,15 +61,23 @@ process_video() {
   DURATION=90              # Always 90 seconds
   FADE_DURATION="${5:-1}"  # Fade duration in seconds (default: 1s)
   # Get source video dimensions
+
   WIDTH=$(ffprobe -v error -select_streams v:0 \
-    -show_entries stream=width -of csv=p=0 "$INPUT")
+    -show_entries stream=width -of csv=p=0 "$INPUT" | head -n1 | tr -d '[:space:],')
   HEIGHT=$(ffprobe -v error -select_streams v:0 \
-    -show_entries stream=height -of csv=p=0 "$INPUT")
+    -show_entries stream=height -of csv=p=0 "$INPUT" | head -n1 | tr -d '[:space:],')
+
+  # Optional but recommended: fail loudly if these aren't numeric
+  if ! [[ "$WIDTH" =~ ^[0-9]+$ ]] || ! [[ "$HEIGHT" =~ ^[0-9]+$ ]]; then
+    echo "process_video: could not determine dimensions for $INPUT (WIDTH='$WIDTH' HEIGHT='$HEIGHT')" >&2
+    return 1
+  fi
 
   # Calculate 4:5 crop dimensions
   # Target: width = height * 4/5
   TARGET_W=$(( HEIGHT * 4 / 5 ))
   TARGET_H=$HEIGHT
+
 
   # If target width exceeds source width, fit to width instead
   if [ "$TARGET_W" -gt "$WIDTH" ]; then
