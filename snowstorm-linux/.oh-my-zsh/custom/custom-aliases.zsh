@@ -39,8 +39,8 @@ function create_issue {
 	gh issue create --repo grange85/ahfow-www-comments --title "$1" --body "### [View post](https://www.fullofwishes.co.uk$2)  
 $3"
 }
-alias sshm='ssh -t moonshot.g85 screen -Rdf'
-alias ssht='ssh -t tugboat.g85 screen -Rdf'
+alias sshm='ssh -t 192.168.1.150 screen -Rdf'
+alias ssht='ssh -t 192.168.1.52 screen -Rdf'
 
 viewmd() {
     local src html
