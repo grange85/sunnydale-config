@@ -24,6 +24,13 @@ set nocursorline
 autocmd InsertEnter * set cursorline
 autocmd InsertLeave * set nocursorline
 
+" Set spelling language (use en_gb for UK English, en_us for US English)
+set spelllang=en_gb
+
+" Toggle spell-check easily with F6 (or any key you prefer)
+nnoremap <F6> :setlocal spell!<CR>
+inoremap <F6> <C-o>:setlocal spell!<CR>
+
 augroup filetypedetect
   " Mail
   autocmd BufRead,BufNewFile *mutt-* setfiletype mail
@@ -39,7 +46,7 @@ function! FlickrReplace()
   endif
 endfunction
 function! MoonshotReplace()
-  let pattern = 'https\?:\/\/\(moonshot\.g85:40[40]0\|www\.fullofwishes\.co\.uk\)'
+  let pattern = 'https\?:\/\/\(moonshot\.g85:40[40]0\|www\.fullofwishes\.co\.uk\|192\.168\.1\.150:4040\)'
   let replacement = ''
   if search(pattern) != 0
 	execute '%s/'.pattern.'/'.replacement.'/g'
